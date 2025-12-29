@@ -1,0 +1,13 @@
+package com.buek.java_pos.auth.repository;
+
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.buek.java_pos.auth.entity.User;
+
+public interface UserRepository extends JpaRepository<User, UUID> {
+    Optional<User> findByUsername(String username);
+    boolean existsByUsername(String username);
+}

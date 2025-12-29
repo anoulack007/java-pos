@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <conversionRule conversionWord="clr"
+        class="org.springframework.boot.logging.logback.ColorConverter"/>
+
+    <conversionRule conversionWord="wex"
+        class="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+
+    <springProperty scope="context"
+        name="APP_NAME"
+        source="spring.application.name"
+        defaultValue="java-pos"/>
+
+    <!-- ===== INFO ===== -->
+    <appender name="INFO_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%clr(%d{HH:mm:ss.SSS}){faint} | %clr(%-5level){green} | %clr(${APP_NAME}){cyan} | %clr(%logger{36}){blue} | %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- ===== WARN ===== -->
+    <appender name="WARN_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%clr(%d{HH:mm:ss.SSS} | %-5level | ${APP_NAME} | %logger{36} | %msg){yellow}%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- ===== ERROR ===== -->
+    <appender name="ERROR_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%clr(%d{HH:mm:ss.SSS} | %-5level | ${APP_NAME} | %logger{36} | %msg){red}%n%wex</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- ===== Log levels ===== -->
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.security" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+
+    <root level="INFO">
+        <appender-ref ref="INFO_CONSOLE"/>
+        <appender-ref ref="WARN_CONSOLE"/>
+        <appender-ref ref="ERROR_CONSOLE"/>
+    </root>
+
+</configuration>

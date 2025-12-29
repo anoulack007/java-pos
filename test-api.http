@@ -1,0 +1,11 @@
+### Create Category
+POST http://localhost:8080/api/categories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc2NjU2NjA1OSwiZXhwIjoxNzY2NTY5NjU5fQ.69gaEMmXZB9Y-2J5ruh3padz71u28wCFQTSDMiokNmA
+
+{
+    "name": "Milk1"
+}
+
+### List Categories
+GET http://localhost:8080/api/categories
