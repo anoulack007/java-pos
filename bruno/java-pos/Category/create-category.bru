@@ -1,0 +1,33 @@
+meta {
+  name: create-category
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/categories
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{accessToken}}
+}
+
+body:json {
+  {
+    "name": "Snack"
+  }
+}
+
+script:post-response {
+    const data = res.body;
+    if (data && data.id) {
+      bru.setEnvVar("categoryId", data.id);
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

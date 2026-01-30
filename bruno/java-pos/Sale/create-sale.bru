@@ -1,0 +1,28 @@
+meta {
+  name: create-sale
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/sales
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "items": [
+      { "productId": "{{productId}}", "qty": 2 }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
