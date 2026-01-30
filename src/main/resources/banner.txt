@@ -1,0 +1,12 @@
+
+${AnsiColor.GREEN}╔════════════════════════════════════════════════════════════╗${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}                                                            ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}        ${AnsiColor.YELLOW}[OK] Application Started Successfully${AnsiColor.DEFAULT}              ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}                                                            ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}  ${AnsiColor.CYAN}Database:${AnsiColor.DEFAULT}  postgresql://localhost:5432/posdb            ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}                                                            ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}  ${AnsiColor.CYAN}Server:${AnsiColor.DEFAULT}    http://localhost:8080                         ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}                                                            ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}  ${AnsiColor.CYAN}API:${AnsiColor.DEFAULT}       http://localhost:8080/api                     ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}║${AnsiColor.DEFAULT}                                                            ${AnsiColor.GREEN}║${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}╚════════════════════════════════════════════════════════════╝${AnsiColor.DEFAULT}
