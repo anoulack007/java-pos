@@ -1,0 +1,36 @@
+meta {
+  name: create-product
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/products
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "sku": "SKU001",
+    "name": "Coke",
+    "price": 12.00,
+    "categoryId": "{{categoryId}}"
+  }
+}
+
+script:post-response {
+   const data = res.body;
+    if (data && data.data.id) {
+      bru.setEnvVar("productId", data.data.id);
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

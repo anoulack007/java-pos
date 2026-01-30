@@ -6,9 +6,9 @@ import com.buek.java_pos.product.entity.Product;
 import com.buek.java_pos.product.repository.ProductRepository;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
-
 
 @Service
 public class ProductService {
@@ -40,11 +40,13 @@ public class ProductService {
         return toResponse(p);
     }
 
+    @Transactional(readOnly = true)
     public ProductResponse get(UUID id) {
         return repo.findById(id).map(this::toResponse)
                 .orElseThrow(() -> new IllegalArgumentException("product not found"));
     }
 
+    @Transactional(readOnly = true)
     public Page<ProductResponse> search(String q, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
         Page<Product> result = (q == null || q.isBlank())
@@ -88,7 +90,6 @@ public class ProductService {
                 p.getPrice(),
                 Boolean.TRUE.equals(p.getActive()),
                 catId,
-                catName
-        );
+                catName);
     }
 }

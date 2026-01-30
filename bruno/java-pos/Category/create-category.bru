@@ -7,11 +7,11 @@ meta {
 post {
   url: {{baseUrl}}/api/categories
   body: json
-  auth: inherit
+  auth: bearer
 }
 
-headers {
-  Authorization: Bearer {{accessToken}}
+auth:bearer {
+  token: {{accessToken}}
 }
 
 body:json {
@@ -22,8 +22,9 @@ body:json {
 
 script:post-response {
     const data = res.body;
-    if (data && data.id) {
-      bru.setEnvVar("categoryId", data.id);
+    if (data && data.data) {
+  //     console.log(data)
+      bru.setEnvVar("categoryId", data.data.id);
     }
 }
 
