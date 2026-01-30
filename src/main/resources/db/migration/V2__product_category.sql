@@ -14,5 +14,5 @@ create table if not exists products (
     foreign key (category_id) references categories(id)
 );
 
-create index if not exists idx_products_name on products(name);
-create index if not exists idx_products_sku on products(sku);
+create index idx_products_name on products(name);
+create index idx_products_sku on products(sku);
